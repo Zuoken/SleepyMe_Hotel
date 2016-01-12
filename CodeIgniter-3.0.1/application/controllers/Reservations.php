@@ -1,10 +1,19 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+/*
+    Code by: Cameron Winters
+    For: Web 2.0 & PHP Course with Kevin Browne
+    Mohawk College 2015
+*/
+ 
 class Reservations extends CI_Controller {
 	
 	function __construct() { 
-        parent::__construct(); 
+        parent::__construct();
+         
 		// Set the timezone
 		date_default_timezone_set('EST');
+        
 		// Load the libraries, helpers, and the db model
         $this->load->library('session');  
 		$this->load->library('template');
@@ -21,7 +30,7 @@ class Reservations extends CI_Controller {
 		$this->template->show('reservations', 'Reservations', $TPL);
 	}
 	
-	// Function for the Select Date section
+	// Validates user's date selection and updates reservation step
 	public function selectDate($action = 'default')
 	{		
 		if ($action == 'continue')
@@ -68,7 +77,7 @@ class Reservations extends CI_Controller {
 		$this->template->show('reservations', 'Reservations', $TPL);
 	}
 	
-	// Function for the Select Rooms section
+	// Validates user's room selection and updates reservation step
 	public function selectRooms($action = 'default', $info = 0)
 	{	
 		$arrival = $this->session->userdata('arrivalDate');
@@ -112,6 +121,7 @@ class Reservations extends CI_Controller {
 		$this->template->show('reservations', 'Reservations', $TPL);
 	}
 	
+    // Validates user's payment information and updates reservation step 
 	public function selectPayment($action = 'default')
 	{
 		$TPL['default'] = 'default';
@@ -207,6 +217,7 @@ class Reservations extends CI_Controller {
 		$this->template->show('reservations', 'Reservations', $TPL);
 	}
 	
+    // Confirmation for user's reservation; if they chose to reserve a new record is inserted into the DB
 	public function selectConfirmation($action = 'default')
 	{
 		$TPL['default'] = 'default';
@@ -226,6 +237,7 @@ class Reservations extends CI_Controller {
 			$expMonth = $this->session->userdata('expMonth');
 			$expYear = $this->session->userdata('expYear');
 			$secCode = $this->session->userdata('secCode');
+            
 			// Insert new reservation into database
 			$this->dbreservations->insert_reservation($arrival, $departure, $roomSelection, $nights, $charge,
 			$fName, $lName, $email, $cardName, $cardType, $cardNum, $expMonth, $expYear, $secCode);

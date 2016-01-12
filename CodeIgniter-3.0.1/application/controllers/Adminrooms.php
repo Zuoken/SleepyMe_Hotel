@@ -1,6 +1,13 @@
 <?php
+
+/*
+    Code by: Cameron Winters
+    For: Web 2.0 & PHP Course with Kevin Browne
+    Mohawk College 2015
+*/
+
 class Adminrooms extends CI_Controller {
-	
+    
 	public function index()
 	{
 		$this->load->library('template');
@@ -8,11 +15,13 @@ class Adminrooms extends CI_Controller {
 		$this->template->show('admin_rooms', 'Admin Rooms', $TPL);
 	}
 		
+    // Allows user to add a room
 	public function add() {
 		$TPL['room_edit'] = 'add';
 		$this->template->show('admin_rooms', 'Admin Rooms', $TPL);
 	}
 	
+    // Inserts new room into the DB
 	public function insert() {
 		$this->load->model('dbrooms');
 
@@ -28,6 +37,7 @@ class Adminrooms extends CI_Controller {
 		$this->template->show('admin_rooms', 'Admin Rooms', $TPL);
 	}
 	
+    // Returns info for all rooms to display to user
 	public function display() {
 		$this->load->model('dbrooms');  
 		
@@ -37,6 +47,7 @@ class Adminrooms extends CI_Controller {
 		$this->template->show('admin_rooms', 'Admin Rooms', $TPL);
 	}
 	
+    // Returns room info for user to edit
 	public function edit($room) {
 		$this->load->model('dbrooms');
 		
@@ -46,6 +57,7 @@ class Adminrooms extends CI_Controller {
 		$this->template->show('admin_rooms', 'Admin Rooms', $TPL);
 	}
 	
+    // Deletes room from the DB
 	public function delete($room) {
 		$this->load->model('dbrooms');
 		
@@ -55,6 +67,7 @@ class Adminrooms extends CI_Controller {
 		$this->template->show('admin_rooms', 'Admin Rooms', $TPL);
 	}
 	
+    // Updates room info in the DB
 	public function update() {
 		$this->load->model('dbrooms');
 

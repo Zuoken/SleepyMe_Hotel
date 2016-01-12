@@ -1,16 +1,20 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');  
 
+/*
+    Code by: Cameron Winters
+    For: Web 2.0 & PHP Course with Kevin Browne
+    Mohawk College 2015
+*/
+
+
 class Dbreservations_admin extends CI_Model {
 
-   	// Class variables
-   	var $defineMe;
-	   
-    // Call the constructor
     function __construct()
     {
         parent::__construct();
     }
-    
+
+    // Returns an array of rooms booked on a specified date    
 	function get_booked_ondate($date = 0)
 	{
 		$dateFormat = date('Y-m-d', strtotime($date));
@@ -23,6 +27,7 @@ class Dbreservations_admin extends CI_Model {
         return $room_availability;
 	}
 	
+    // Returns the number of rooms
     function get_rooms_count()
     {
         $this->db->select('id');
@@ -30,6 +35,4 @@ class Dbreservations_admin extends CI_Model {
         $query = $this->db->count_all_results();
         return $query;
     }
-	
-	
 }

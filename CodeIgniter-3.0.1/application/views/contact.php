@@ -38,43 +38,43 @@
 		?>
 		
 		<table id="contact-form">
-				<tr>
-					<th><?= form_label('Name: ', 'name'); ?></th>
-					<td><?= form_input($name); ?></td>
-				</tr>
-				<tr>
-					<th><?= form_label('Address: ', 'address'); ?></th>
-					<td><?= form_input($address); ?></td>
-				</tr>
-				<tr>
-					<th><?= form_label('Postal Code: ', 'postal'); ?></th>
-					<td><?= form_input($postal); ?></td>
-				</tr>
-				<tr>
-					<th><?= form_label('Phone: ', 'phone'); ?></th>
-					<td><?= form_input($phone); ?></td>
-				</tr>
-				<tr>
-					<th><?= form_label('E-mail: ', 'email'); ?></th>
-					<td><?= form_input($email); ?></td>
-				</tr>
-				<tr>
-					<th><?= form_label('Comment: ', 'comment'); ?></th>
-					<td><?= form_textarea($comment); ?></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><?= form_submit('submit', 'Submit'); ?></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>
-						<?= $validation; ?>
-						<?= validation_errors(); ?>
-					</td>
-				</tr>
-			</table>
-			<?= form_close(); ?>
+			<tr>
+				<th><?= form_label('Name: ', 'name'); ?></th>
+				<td><?= form_input($name); ?></td>
+			</tr>
+			<tr>
+				<th><?= form_label('Address: ', 'address'); ?></th>
+				<td><?= form_input($address); ?></td>
+			</tr>
+			<tr>
+				<th><?= form_label('Postal Code: ', 'postal'); ?></th>
+				<td><?= form_input($postal); ?></td>
+			</tr>
+			<tr>
+				<th><?= form_label('Phone: ', 'phone'); ?></th>
+				<td><?= form_input($phone); ?></td>
+			</tr>
+			<tr>
+				<th><?= form_label('E-mail: ', 'email'); ?></th>
+				<td><?= form_input($email); ?></td>
+			</tr>
+			<tr>
+				<th><?= form_label('Comment: ', 'comment'); ?></th>
+				<td><?= form_textarea($comment); ?></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><?= form_submit('submit', 'Submit'); ?></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<?= $validation; ?>
+					<?= validation_errors(); ?>
+				</td>
+			</tr>
+		</table>
+		<?= form_close(); ?>
 	</div>
 </div>
 <div id="right-side">

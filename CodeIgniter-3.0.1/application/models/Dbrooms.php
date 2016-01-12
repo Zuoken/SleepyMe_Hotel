@@ -4,10 +4,9 @@ class Dbrooms extends CI_Model {
 
     var $room_no   = 0;
     var $long_desc = '';
-    var $room_desc    = '';
-    var $rate = 0;
+    var $room_desc = '';
+    var $rate      = 0;
     
-    // Call the constructor
     function __construct()
     {
         parent::__construct();

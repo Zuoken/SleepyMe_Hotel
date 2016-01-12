@@ -1,11 +1,14 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');  
 
-class Dbreservations extends CI_Model {
+/*
+    Code by: Cameron Winters
+    For: Web 2.0 & PHP Course with Kevin Browne
+    Mohawk College 2015
+*/
 
-   	// Class variables
-   	var $defineMe;
-	   
-    // Call the constructor
+
+class Dbreservations extends CI_Model {
+    
     function __construct()
     {
         parent::__construct();
@@ -67,7 +70,7 @@ class Dbreservations extends CI_Model {
         $query = $this->db->get();
         $available_count = count($query->result());
         
-        // Returns true if rooms are available... false otherwise        
+        // Returns true if rooms are available   
         if ($booked_count < $available_count)
         {
             return true;

@@ -1,12 +1,17 @@
-<!-- Google Maps Plugin provided by BIOSTALL: http://biostall.com/codeigniter-google-maps-v3-api-library -->
 <?php
+
+/*
+    Google Maps Plugin provided by BIOSTALL: http://biostall.com/codeigniter-google-maps-v3-api-library
+
+    Code by: Cameron Winters
+    For: Web 2.0 & PHP Course with Kevin Browne
+    Mohawk College 2015
+*/
+
 class Contact extends CI_Controller {
 
         public function index()
         {
-			// Load the libraries
-			//$this->load->library('template');
-					
 			// Load the Form helper
 			$this->load->helper('form');
 			
@@ -28,13 +33,11 @@ class Contact extends CI_Controller {
 			
 			// Load the template
 			$this->template->show('contact', 'Contact', $TPL);
-						 
         }
 		
-		// Form Validation
+		// Form validation
 		public function post() {
 			$this->load->library('form_validation');
-			
 			$this->form_validation->set_error_delimiters("<p style='font-weight: bold; color:red;'>", '</p>'); 
 			$this->form_validation->set_rules('name', 'Name', 'required|min_length[2]');
 			$this->form_validation->set_rules('address', 'Address', 'required|min_length[2]');
@@ -65,7 +68,6 @@ class Contact extends CI_Controller {
 				$TPL['validation'] = "The form has been successfully submitted";
 				
 				// Load email library, set up message, and send it
-				//$this->load->library('email');
 				$this->load->helper('date');
 				date_default_timezone_set('EST'); 
 				

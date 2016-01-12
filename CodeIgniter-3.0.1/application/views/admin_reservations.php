@@ -9,7 +9,6 @@
 <script>
 	$(document).ready(function() {
 		$("a").click(function() {
-			//alert(this.id);
 			$.ajax({
 				type:'POST',
 				data:{date: this.id},
